@@ -10,16 +10,14 @@ var orm = {
             callback(result);
         });
     },
-    insertOne: function(burger_name, callback) {
-        connection.query('INSERT INTO burgers (burger_name) VALUES ?', {
-            burger_name: burger_name
-        }, function(err, result) {
+    insertOne: function(newBurger, callback) {
+        connection.query('INSERT INTO burgers (burger_name) SET ?', newBurger, function(err, result) {
             if (err) throw err;
             callback(result);
         });
     },
     updateOne: function(id, callback) {
-        connection.query('INSERT INTO burgers SET ? WHERE ?', [
+        connection.query('UPDATE burgers SET ? WHERE ?', [
             { devoured: true },
             { id: id }
         ], function(err, result) {

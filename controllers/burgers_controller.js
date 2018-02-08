@@ -17,14 +17,18 @@ router.get('/', function(req, res) {
 });
 
 router.post('/api/burgers', function(req, res) {
-    burger.insertOne(req.body.newBurger, function() {
-        res.redirect('/index');
+    burger.insertOne(['burger_name'], [req.body.newBurger], function(res) {
+        res.redirect('/');
     });
 });
 
 router.put('/api/burgers/:id', function(req, res) {
-    burger.updateOne(req.params.id, function() {
-        res.redirect('/index');
+    burger.updateOne(req.params.id, function(result) {
+        if (result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
     });
 });
 

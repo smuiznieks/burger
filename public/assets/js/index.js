@@ -11,9 +11,8 @@ $(function() {
             }
         );
     });
-    $('.change-devoured').on('click', function(event) {
+    $('.devourButton').on('click', function(event) {
         var id = $(this).data('id');
-        // console.log(id);
         $.ajax('/api/burgers/' + id, {
             type: 'PUT',
             data: { devoured: true }

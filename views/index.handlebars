@@ -9,25 +9,25 @@
     <!-- Display Menu Items -->
     <div class="col-sm-6">
       <h3 class="text-center rounded">Menu</h3>
-        {{#each burgers}}
-          {{#unless devoured}}
-            {{> burgers/burger-block devoured=true}}
-          {{/unless}}
-        {{/each}}
+      {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+      {{/each}}
     </div>
     <!-- Display "Devoured" Items -->
     <div class="col-sm-6">
       <h3 class="text-center rounded">Devoured</h3>
-        {{#each burgers}}
-          {{#if devoured}}
-            {{> burgers/burger-block devoured=false}}
-          {{/if}}
-        {{/each}}
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgers/burger-block devoured=false}}
+        {{/if}}
+      {{/each}}
     </div>
   </div>
   <!-- Dream Burger Form -->
   <div class="row justify-content-md-center">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <div class="card" id="form-card">
         <div class="card-body">
           <p class="card-text">
